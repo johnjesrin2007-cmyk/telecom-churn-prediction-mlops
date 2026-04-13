@@ -7,42 +7,27 @@ from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
 
-def preprocess_data(
-    path: str,
-    training: bool = True,
-    target_col: Optional[str] = None
-) -> Tuple[pd.DataFrame, Optional[pd.Series]]:
+def preprocess_data(path: str, training: bool = True, target_col: Optional[str] = None):
 
-   
     df = pd.read_csv(path)
 
     df["Churn"] = pd.to_numeric(df["Churn"], errors="coerce")
     df = df.dropna(subset=["Churn"])
 
-    if df.empty:
-        raise ValueError("Dataset is empty")
-
-    
     if training:
         if target_col is None:
-            target_col = df.columns[-1]
-
-        if target_col not in df.columns:
-            raise ValueError(f"Target column '{target_col}' not found")
+            target_col = "Churn"
 
         X = df.drop(columns=[target_col])
         y = df[target_col]
 
         return X, y
 
-   
     else:
         return df, None
 
 
-
-def get_preprocessor(X: pd.DataFrame) -> ColumnTransformer:
-    
+def get_preprocessor(X):
 
     numeric_features = X.select_dtypes(include=["int64", "float64"]).columns.tolist()
     categorical_features = X.select_dtypes(include=["object"]).columns.tolist()
