@@ -42,7 +42,7 @@ def train_model(pipeline, X, y):
 }
 
     random_search = RandomizedSearchCV(
-    estimator=xgb,
+    pipeline,
     param_distributions=param_dist,
     n_iter=20,             
     scoring="accuracy",    

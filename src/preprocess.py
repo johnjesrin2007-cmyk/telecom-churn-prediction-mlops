@@ -16,8 +16,8 @@ def preprocess_data(
    
     df = pd.read_csv(path)
 
-    df["price"] = pd.to_numeric(df["price"], errors="coerce")
-    df = df.dropna(subset=["price"])
+    df["Churn"] = pd.to_numeric(df["Churn"], errors="coerce")
+    df = df.dropna(subset=["Churn"])
 
     if df.empty:
         raise ValueError("Dataset is empty")
