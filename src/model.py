@@ -4,7 +4,9 @@ from sklearn.pipeline import Pipeline
 def get_model_pipeline(preprocess):
     model = XGBClassifier(use_label_encoder=False, eval_metric="logloss", n_jobs=-1)
     
-    return Pipeline([
+    pipeline = Pipeline([
         ("preprocess", preprocess),
         ("model", model)
     ])
+    
+    return pipeline
