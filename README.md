@@ -172,7 +172,7 @@ curl -X POST "https://<your-actual-app-name>.onrender.com/predict" \
 # 🧪 Local Development (Optional)
 
 ```bash
-git clone <your-repo-link>
+git clone https://github.com/johnjesrin2007-cmyk/telecom-churn-prediction-mlops.git
 cd telecom-churn-mlops
 
 python -m venv venv
