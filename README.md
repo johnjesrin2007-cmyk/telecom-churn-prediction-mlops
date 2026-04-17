@@ -7,7 +7,7 @@ This project demonstrates **production-level ML system design**, including pipel
 
 # 🌍 Live Demo
 
-👉 https://<your-actual-app-name>.onrender.com/docs
+👉https://telecom-churn-prediction-mlops-5.onrender.com
 
 > Interactive API documentation (Swagger UI)
 
